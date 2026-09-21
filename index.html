@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://assets.mailerlite.com; frame-src 'none';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Darmowy e-book: Ochrona przed kunami | Kunagone</title>
@@ -54,6 +54,11 @@
         .cta-consent input[type="checkbox"]{margin-top:2px;flex-shrink:0;width:16px;height:16px;accent-color:var(--red);cursor:pointer}
         .cta-consent label{font-size:11px;color:#888;line-height:1.5;cursor:pointer}
         .cta-bottom .cta-consent label{color:rgba(255,255,255,.4)}
+        .cta-consent label a{color:inherit;text-decoration:underline}
+        .ml-msg{font-size:14px;line-height:1.5;margin-top:4px}
+        .ml-msg.err{color:#ff6b6b}
+        .ml-done{padding:18px 20px;border-left:4px solid var(--red);background:rgba(255,255,255,.06);border-radius:4px;font-size:15px;line-height:1.6}
+        .ml-done strong{display:block;font-size:18px;margin-bottom:4px}
         .cta-form input[type="email"]{padding:14px 16px;border:2px solid #333;border-radius:4px;font-size:15px;background:#1a1a1a;color:#fff;outline:none;transition:border-color .2s}
         .cta-form input[type="email"]:focus{border-color:var(--red);outline:2px solid transparent;outline-offset:2px}
         .btn-cta{background:var(--red);color:var(--white);border:none;padding:16px 32px;font-size:16px;font-weight:700;font-family:'Antonio',sans-serif;text-transform:uppercase;letter-spacing:1px;border-radius:4px;cursor:pointer;transition:background .2s,transform .15s}
@@ -210,13 +215,13 @@
                 <li>Gotowa instrukcja, co zrobić od zaraz</li>
             </ul>
 
-            <form class="cta-form" onsubmit="event.preventDefault();" aria-label="Formularz pobierania e-booka">
+            <form class="cta-form ml-form" aria-label="Formularz pobierania e-booka">
                 <label for="email-hero" class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0">Adres e-mail</label>
                 <input type="email" id="email-hero" placeholder="Twój adres e-mail" required aria-required="true" autocomplete="email">
                 <button type="submit" class="btn-cta">&#9733; Pobieram e-book za darmo</button>
                 <div class="cta-consent">
                     <input type="checkbox" id="consent-hero" required aria-required="true">
-                    <label for="consent-hero">Wyrażam zgodę na otrzymanie e-booka oraz informacji handlowych od Kunagone. Twoje dane są bezpieczne, nie udostępniamy ich osobom trzecim. Możesz zrezygnować w każdej chwili.</label>
+                    <label for="consent-hero">Akceptuję <a href="regulamin.html" target="_blank">regulamin</a> i wyrażam zgodę na otrzymanie e-booka oraz informacji handlowych od Kunagone S.A. drogą e-mailową. Możesz wypisać się w każdej chwili. Szczegóły w <a href="polityka.html" target="_blank">polityce prywatności</a>.</label>
                 </div>
             </form>
         </div>
@@ -573,13 +578,13 @@
         <h2>Nie czekaj na pierwszy rachunek<br>Pobierz e-book teraz</h2>
         <p>14 rozdziałów z&nbsp;realnymi kwotami i&nbsp;instrukcjami krok po kroku, za darmo</p>
 
-        <form class="cta-form" onsubmit="event.preventDefault();" aria-label="Formularz pobierania e-booka">
+        <form class="cta-form ml-form" aria-label="Formularz pobierania e-booka">
             <label for="email-bottom" class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0">Adres e-mail</label>
             <input type="email" id="email-bottom" placeholder="Twój adres e-mail" required aria-required="true" autocomplete="email">
             <button type="submit" class="btn-cta">&#9733; Pobieram za darmo</button>
             <div class="cta-consent">
                 <input type="checkbox" id="consent-bottom" required aria-required="true">
-                <label for="consent-bottom">Wyrażam zgodę na otrzymanie e-booka oraz informacji handlowych od Kunagone. Twoje dane są bezpieczne, nie udostępniamy ich osobom trzecim. Możesz zrezygnować w każdej chwili.</label>
+                <label for="consent-bottom">Akceptuję <a href="regulamin.html" target="_blank">regulamin</a> i wyrażam zgodę na otrzymanie e-booka oraz informacji handlowych od Kunagone S.A. drogą e-mailową. Możesz wypisać się w każdej chwili. Szczegóły w <a href="polityka.html" target="_blank">polityce prywatności</a>.</label>
             </div>
         </form>
     </div>
@@ -590,7 +595,7 @@
 <footer>
     <div class="container">
         <div class="footer-logo">KUNAGONE<sup>&reg;</sup></div>
-        <p style="margin-top:8px">&copy; 2026 Kunagone. Wszystkie prawa zastrzeżone. | <a href="https://kunagone.pl" target="_blank" rel="noopener noreferrer">Kunagone.pl</a></p>
+        <p style="margin-top:8px">&copy; 2026 Kunagone S.A. Wszystkie prawa zastrzeżone. | <a href="regulamin.html">Regulamin</a> | <a href="polityka.html">Polityka prywatności</a> | <a href="https://kunagone.pl" target="_blank" rel="noopener noreferrer">Kunagone.pl</a></p>
     </div>
 </footer>
 
@@ -621,5 +626,33 @@
 })();
 </script>
 
+<script>
+document.querySelectorAll('.ml-form').forEach(function(form){
+    form.addEventListener('submit',function(e){
+        e.preventDefault();
+        var email=form.querySelector('input[type="email"]').value.trim();
+        var btn=form.querySelector('button[type="submit"]');
+        var msg=form.querySelector('.ml-msg');
+        if(!msg){msg=document.createElement('p');msg.className='ml-msg';msg.setAttribute('role','status');form.appendChild(msg);}
+        msg.className='ml-msg';msg.textContent='';
+        btn.disabled=true;
+        var data=new FormData();
+        data.append('fields[email]',email);
+        data.append('ml-submit','1');
+        data.append('anticsrf','true');
+        fetch('https://assets.mailerlite.com/jsonp/2262504/forms/187071046415811797/subscribe',{method:'POST',body:data})
+            .then(function(r){return r.json();})
+            .then(function(res){
+                if(!res.success){throw new Error();}
+                form.innerHTML='<div class="ml-done" role="status"><strong>Sprawdź skrzynkę</strong>Wysłaliśmy Ci e-mail z linkiem potwierdzającym. Kliknij go, a od razu dostaniesz e-book. Jeśli wiadomość nie dotrze w ciągu kilku minut, zajrzyj do spamu lub zakładki Oferty.</div>';
+            })
+            .catch(function(){
+                btn.disabled=false;
+                msg.className='ml-msg err';
+                msg.textContent='Nie udało się zapisać adresu. Sprawdź, czy jest poprawny, i spróbuj ponownie.';
+            });
+    });
+});
+</script>
 </body>
 </html>
