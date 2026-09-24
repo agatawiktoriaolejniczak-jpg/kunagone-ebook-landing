@@ -74,10 +74,8 @@
         .hero-bullets li{padding:6px 0;font-size:15px;color:#ddd}
         .hero-bullets li::before{content:'\2713';color:var(--red);font-weight:800;margin-right:10px}
         .ebook-visual{display:flex;justify-content:center}
-        .ebook-mockup{width:280px;min-height:380px;background:var(--red);border-radius:6px;padding:40px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:20px 20px 60px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.05);position:relative}
-        .ebook-mockup-title{font-family:'Antonio',sans-serif;font-size:26px;font-weight:700;text-transform:uppercase;color:var(--white);line-height:1.15;margin-bottom:8px;position:relative;z-index:1}
-        .ebook-mockup-subtitle{font-size:13px;color:rgba(255,255,255,.8);margin-bottom:20px;position:relative;z-index:1}
-        .ebook-mockup-brand{font-family:'Antonio',sans-serif;font-size:20px;font-weight:700;color:var(--white);letter-spacing:3px;position:relative;z-index:1;border-top:2px solid rgba(255,255,255,.3);padding-top:16px;margin-top:auto}
+        .ebook-cover{width:290px;max-width:100%;height:auto;display:block;box-shadow:22px 22px 60px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08);transform:rotate(-2deg);transition:transform .3s ease}
+        .ebook-cover:hover{transform:rotate(0deg) translateY(-4px)}
         .cta-form{display:flex;flex-direction:column;gap:10px;max-width:400px}
         .cta-consent{display:flex;align-items:flex-start;gap:8px;margin-top:4px}
         .cta-consent input[type="checkbox"]{margin-top:2px;flex-shrink:0;width:16px;height:16px;accent-color:var(--red);cursor:pointer}
@@ -250,7 +248,7 @@
                 <li>Ile naprawdę kosztują szkody (realne kwoty)</li>
                 <li>6 błędów, które kosztują najbardziej</li>
                 <li>Co działa, a&nbsp;co jest stratą pieniędzy</li>
-                <li>Gotowa instrukcja, co zrobić od zaraz</li>
+                <li>Checklista na jedną stronę A4 do wydrukowania</li>
             </ul>
 
             <form class="cta-form ml-form" aria-label="Formularz pobierania e-booka">
@@ -269,11 +267,7 @@
         </div>
 
         <div class="ebook-visual">
-            <div class="ebook-mockup" role="img" aria-label="Okładka e-booka Kunagone: Ochrona przed kunami">
-                <div class="ebook-mockup-title">Ochrona<br>przed kunami</div>
-                <div class="ebook-mockup-subtitle">Praktyczny poradnik dla właścicieli domów i&nbsp;samochodów</div>
-                <div class="ebook-mockup-brand">KUNAGONE</div>
-            </div>
+            <img class="ebook-cover" src="img/okladka.jpg" width="900" height="1272" alt="Okładka e-booka Kunagone: Ochrona przed kunami" loading="eager">
         </div>
     </div>
 </section>
@@ -527,7 +521,7 @@
             </div>
             <div class="chapter-item">
                 <div class="chapter-num">12</div>
-                <div><h3>Co wdrożyć od zaraz</h3><p>Co sprawdzić w domu, co w samochodzie, co zrobić dziś.</p></div>
+                <div><h3>Checklista do wdrożenia</h3><p>Jedna strona A4 do wydrukowania. Co sprawdzić w domu, co w samochodzie, co zrobić dziś.</p></div>
             </div>
             <div class="chapter-item">
                 <div class="chapter-num">13</div>
