@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://assets.mailerlite.com; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://assets.mailerlite.com https://www.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src 'none';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Darmowy e-book: Ochrona przed kunami | Kunagone</title>
@@ -18,6 +18,25 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+        try {
+            if (localStorage.getItem('kg-consent') === 'granted') {
+                gtag('consent', 'update', {'analytics_storage': 'granted'});
+            }
+        } catch (e) {}
+        gtag('js', new Date());
+        gtag('config', 'G-FXGZGFK075');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXGZGFK075"></script>
     <link rel="canonical" href="https://ebook.kunagone.pl/">
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="preload" as="image" href="img/hero-bg.jpg">
@@ -65,6 +84,15 @@
         .cta-consent label{font-size:11px;color:#888;line-height:1.5;cursor:pointer}
         .cta-bottom .cta-consent label{color:rgba(255,255,255,.4)}
         .cta-consent label a{color:inherit;text-decoration:underline}
+        .cookie-bar{position:fixed;left:16px;bottom:16px;z-index:200;max-width:400px;background:#111;color:#fff;padding:20px 22px;border-left:4px solid var(--red);box-shadow:0 12px 32px rgba(0,0,0,.35);display:none}
+        .cookie-bar.show{display:block}
+        .cookie-bar p{font-size:13px;line-height:1.6;color:rgba(255,255,255,.75);margin-bottom:14px}
+        .cookie-bar a{color:#fff;text-decoration:underline}
+        .cookie-bar-actions{display:flex;gap:10px;flex-wrap:wrap}
+        .cookie-bar button{font-family:inherit;font-size:13px;font-weight:600;padding:10px 16px;border:none;border-radius:3px;cursor:pointer}
+        .cookie-accept{background:var(--red);color:#fff}
+        .cookie-reject{background:transparent;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.3)}
+        @media (max-width:600px){.cookie-bar{left:12px;right:12px;bottom:12px;max-width:none}}
         .ml-msg{font-size:14px;line-height:1.5;margin-top:4px}
         .ml-msg.err{color:#ff6b6b}
         .ml-done{padding:18px 20px;border-left:4px solid var(--red);background:rgba(255,255,255,.06);border-radius:4px;font-size:15px;line-height:1.6}
@@ -636,6 +664,14 @@
 })();
 </script>
 
+<div class="cookie-bar" id="cookieBar" role="dialog" aria-label="Zgoda na pliki cookie">
+    <p>Używamy Google Analytics, żeby wiedzieć, ile osób czyta tę stronę. Bez Twojej zgody nie zapisujemy żadnych plików cookie. Szczegóły w <a href="polityka.html">polityce prywatności</a>.</p>
+    <div class="cookie-bar-actions">
+        <button class="cookie-accept" id="cookieAccept">Zgadzam się</button>
+        <button class="cookie-reject" id="cookieReject">Tylko niezbędne</button>
+    </div>
+</div>
+
 <script>
 document.querySelectorAll('.ml-form').forEach(function(form){
     form.addEventListener('submit',function(e){
@@ -654,6 +690,7 @@ document.querySelectorAll('.ml-form').forEach(function(form){
             .then(function(r){return r.json();})
             .then(function(res){
                 if(!res.success){throw new Error();}
+                gtag('event', 'generate_lead', {'form_location': form.closest('#cta-bottom') ? 'cta-bottom' : 'hero'});
                 form.innerHTML='<div class="ml-done" role="status"><strong>Sprawdź skrzynkę</strong>Wysłaliśmy Ci e-mail z linkiem potwierdzającym. Kliknij go, a od razu dostaniesz e-book. Jeśli wiadomość nie dotrze w ciągu kilku minut, zajrzyj do spamu lub zakładki Oferty.</div>';
             })
             .catch(function(){
@@ -663,6 +700,20 @@ document.querySelectorAll('.ml-form').forEach(function(form){
             });
     });
 });
+
+(function(){
+    var bar = document.getElementById('cookieBar');
+    var saved = null;
+    try { saved = localStorage.getItem('kg-consent'); } catch (e) {}
+    if (!saved) { bar.classList.add('show'); }
+    function decide(value){
+        try { localStorage.setItem('kg-consent', value); } catch (e) {}
+        gtag('consent', 'update', {'analytics_storage': value});
+        bar.classList.remove('show');
+    }
+    document.getElementById('cookieAccept').addEventListener('click', function(){ decide('granted'); });
+    document.getElementById('cookieReject').addEventListener('click', function(){ decide('denied'); });
+})();
 </script>
 </body>
 </html>
