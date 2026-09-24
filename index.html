@@ -146,6 +146,13 @@
         .historia-card{background:var(--gray);border-radius:8px;padding:36px 28px;text-align:left;border-left:4px solid var(--red)}
         .historia-card h3{font-size:20px;margin-bottom:12px;text-transform:none}
         .historia-card p{font-size:14px;color:var(--gray-mid);line-height:1.7}
+        .podglad{padding:80px 0;background:var(--white)}
+        .podglad-head{max-width:620px;margin-bottom:36px}
+        .podglad-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:start}
+        .podglad-item figure{margin:0}
+        .podglad-item img{width:100%;height:auto;display:block;border:1px solid #e2e2e2;box-shadow:0 14px 34px rgba(0,0,0,.12)}
+        .podglad-item figcaption{font-size:14px;color:var(--gray-mid);margin-top:14px;padding-left:12px;border-left:3px solid var(--red);line-height:1.5}
+        @media (max-width:860px){.podglad-grid{grid-template-columns:1fr;gap:32px}.podglad-item img{max-width:420px}}
         .co-w-ebooku{background:var(--gray-dark);color:var(--white);padding:80px 0;text-align:center}
         .co-w-ebooku .section-title{color:var(--white)}
         .co-w-ebooku .section-desc{color:#aaa}
@@ -531,6 +538,31 @@
                 <div class="chapter-num">14</div>
                 <div><h3>Najczęściej zadawane pytania</h3><p>Czy działa zimą? Ile kosztuje? Czy kuna atakuje wszystkie marki?</p></div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- PODGLAD WNETRZA -->
+<section class="podglad" aria-label="Podgląd wnętrza e-booka">
+    <div class="container">
+        <div class="podglad-head">
+            <p class="section-label">&#9733; Zajrzyj do środka</p>
+            <h2 class="section-title">Tak wygląda e-book w środku</h2>
+            <p class="section-desc" style="margin:0">60 stron składu, zdjęcia z prawdziwych szkód, tabele z kosztami i checklista, którą wydrukujesz i odhaczysz punkt po punkcie.</p>
+        </div>
+        <div class="podglad-grid">
+            <div class="podglad-item"><figure>
+                <img src="img/podglad-koszty.jpg" width="760" height="1075" alt="Strona e-booka z widełkami kosztów napraw" loading="lazy">
+                <figcaption>Widełki kosztów napraw, od 200 zł za kabel po 120 tys. zł za dach</figcaption>
+            </figure></div>
+            <div class="podglad-item"><figure>
+                <img src="img/podglad-metody.jpg" width="760" height="1075" alt="Strona e-booka z porównaniem metod odstraszania kun" loading="lazy">
+                <figcaption>Porównanie metod odstraszania: skuteczność, trwałość i koszt</figcaption>
+            </figure></div>
+            <div class="podglad-item"><figure>
+                <img src="img/podglad-checklista.jpg" width="760" height="1075" alt="Strona e-booka z checklistą do wdrożenia" loading="lazy">
+                <figcaption>Checklista na jedną stronę A4, do wydrukowania i odhaczenia</figcaption>
+            </figure></div>
         </div>
     </div>
 </section>
