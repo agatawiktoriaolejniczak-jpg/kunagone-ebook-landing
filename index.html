@@ -272,11 +272,7 @@
                 <button type="submit" class="btn-cta">&#9733; Pobieram e-book za darmo</button>
                 <div class="cta-consent">
                     <input type="checkbox" id="consent-hero" required aria-required="true">
-                    <label for="consent-hero">Akceptuję <a href="regulamin.html" target="_blank">regulamin</a> i chcę dostać e-booka na podany adres. Szczegóły w <a href="polityka.html" target="_blank">polityce prywatności</a>.</label>
-                </div>
-                <div class="cta-consent">
-                    <input type="checkbox" id="marketing-hero">
-                    <label for="marketing-hero">Chcę też dostawać od Kunagone S.A. porady o ochronie przed kunami i informacje o produktach. To dobrowolne, a wypisać się mogę w każdej chwili.</label>
+                    <label for="consent-hero">Zapisuję się na listę Kunagone i akceptuję <a href="regulamin.html" target="_blank">regulamin</a>. Pierwszą wiadomością jest e-book, potem dostaniesz porady o ochronie przed kunami i informacje o produktach. Wypisujesz się jednym kliknięciem. Szczegóły w <a href="polityka.html" target="_blank">polityce prywatności</a>.</label>
                 </div>
             </form>
         </div>
@@ -679,12 +675,8 @@
             <button type="submit" class="btn-cta">&#9733; Pobieram za darmo</button>
             <div class="cta-consent">
                 <input type="checkbox" id="consent-bottom" required aria-required="true">
-                <label for="consent-bottom">Akceptuję <a href="regulamin.html" target="_blank">regulamin</a> i chcę dostać e-booka na podany adres. Szczegóły w <a href="polityka.html" target="_blank">polityce prywatności</a>.</label>
+                <label for="consent-bottom">Zapisuję się na listę Kunagone i akceptuję <a href="regulamin.html" target="_blank">regulamin</a>. Pierwszą wiadomością jest e-book, potem dostaniesz porady o ochronie przed kunami i informacje o produktach. Wypisujesz się jednym kliknięciem. Szczegóły w <a href="polityka.html" target="_blank">polityce prywatności</a>.</label>
             </div>
-                <div class="cta-consent">
-                    <input type="checkbox" id="marketing-bottom">
-                    <label for="marketing-bottom">Chcę też dostawać od Kunagone S.A. porady o ochronie przed kunami i informacje o produktach. To dobrowolne, a wypisać się mogę w każdej chwili.</label>
-                </div>
         </form>
     </div>
 </section>
@@ -743,17 +735,16 @@ document.querySelectorAll('.ml-form').forEach(function(form){
         if(!msg){msg=document.createElement('p');msg.className='ml-msg';msg.setAttribute('role','status');form.appendChild(msg);}
         msg.className='ml-msg';msg.textContent='';
         btn.disabled=true;
-        var marketingBox=form.querySelector('input[id^="marketing-"]');
         var data=new FormData();
         data.append('fields[email]',email);
-        data.append('fields[zgoda_marketing]', marketingBox && marketingBox.checked ? 'tak' : 'nie');
+        data.append('fields[zgoda_marketing]','tak');
         data.append('ml-submit','1');
         data.append('anticsrf','true');
         fetch('https://assets.mailerlite.com/jsonp/2262504/forms/187071046415811797/subscribe',{method:'POST',body:data})
             .then(function(r){return r.json();})
             .then(function(res){
                 if(!res.success){throw new Error();}
-                gtag('event', 'generate_lead', {'form_location': form.closest('#cta-bottom') ? 'cta-bottom' : 'hero', 'marketing_consent': marketingBox && marketingBox.checked ? 'tak' : 'nie'});
+                gtag('event', 'generate_lead', {'form_location': form.closest('#cta-bottom') ? 'cta-bottom' : 'hero', 'marketing_consent': 'tak'});
                 form.innerHTML='<div class="ml-done" role="status"><strong>E-book jest w drodze</strong>Wysłaliśmy go na podany adres. Powinien dotrzeć w ciągu minuty. Jeśli go nie widzisz, zajrzyj do spamu albo do zakładki Oferty.</div>';
             })
             .catch(function(){
