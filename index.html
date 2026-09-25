@@ -65,7 +65,7 @@
         .topbar{background:var(--red);color:var(--white);text-align:center;padding:10px 16px;font-size:14px;font-weight:600;letter-spacing:.5px}
         .hero{background:var(--gray-dark);color:var(--white);padding:80px 0 60px;position:relative;overflow:hidden}
         .hero::before{content:'';position:absolute;inset:0;background:url('img/hero-bg.jpg') center/cover no-repeat;opacity:.15;pointer-events:none}
-        .hero .container{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1}
+        .hero .container{display:grid;grid-template-columns:1fr 0.95fr;gap:56px;align-items:center;position:relative;z-index:1}
         .hero-badge{display:inline-block;background:var(--red);color:var(--white);font-size:13px;font-weight:700;padding:6px 16px;border-radius:3px;margin-bottom:20px;letter-spacing:1px;text-transform:uppercase}
         .hero h1{font-size:clamp(32px,4vw,52px);margin-bottom:20px;line-height:1.05}
         .hero h1 .accent{color:var(--red)}
@@ -74,7 +74,7 @@
         .hero-bullets li{padding:6px 0;font-size:15px;color:#ddd}
         .hero-bullets li::before{content:'\2713';color:var(--red);font-weight:800;margin-right:10px}
         .ebook-visual{display:flex;justify-content:center}
-        .ebook-cover{width:290px;max-width:100%;height:auto;display:block;box-shadow:22px 22px 60px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08);transform:rotate(-2deg);transition:transform .3s ease}
+        .ebook-cover{width:min(420px,100%);max-width:100%;height:auto;display:block;box-shadow:22px 22px 60px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08);transform:rotate(-2deg);transition:transform .3s ease}
         .ebook-cover:hover{transform:rotate(0deg) translateY(-4px)}
         .cta-form{display:flex;flex-direction:column;gap:10px;max-width:400px}
         .cta-consent{display:flex;align-items:flex-start;gap:8px;margin-top:4px}
