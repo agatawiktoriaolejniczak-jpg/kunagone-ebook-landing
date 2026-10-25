@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /pdf/
 
 Sitemap: https://ebook.kunagone.pl/sitemap.xml
